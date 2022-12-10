@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.jdbc.t"/>
+
+    <!-- CUATRO PRIMEROS PARÁMETROS: URL, DRIVER, USER Y PASSWORD-->
+    <!-- USO LA PROPIEDAD TIMEZONE PARA PROBAR EL USO DE FECHAS EN HIBERNATE-->
+    <property name="connection.url">jdbc:postgresql://localhost:5432/samuel?serverTimezone=CET</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">root</property>
+
+    <!-- PROPIEDAD SHOW SQL PARA VER LA SINTAXIS SQL AL EJECUTAR OPERACIONES CON HIBERNATE-->
+    <property name="show_sql">true</property>
+
+    <!-- ESQUEMA DE LA BASE DE DATOS ESTABLECIDO COMO UPDATE -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
+    <!--MAPEO DE CLASES DEL PAQUETE SINGLE-->
+    <mapping class="com.samuel.single.Bicicleta"/>
+
+    <!--MAPEO DE CLASES DEL PAQUETE UNIDIRECCIONAL-->
+    <mapping class="com.samuel.unidireccional.Capitan"/>
+    <mapping class="com.samuel.unidireccional.Barco"/>
+
+    <!--MAPEO DE CLASES DEL PAQUETE BIDIRECCIONAL-->
+    <mapping class="com.samuel.bidireccional.Astronauta"/>
+    <mapping class="com.samuel.bidireccional.ProgramaEspacial"/>
+
+    <!--MAPEO DE CLASES DEL PAQUETE MANYTOMANY-->
+    <mapping class="com.samuel.manytomany.Autor"/>
+    <mapping class="com.samuel.manytomany.Libro"/>
+
+    <!--MAPEO DE CLASES DEL PAQUETE HERENCIA-->
+    <mapping class="com.samuel.herencia.Medico"/>
+    <mapping class="com.samuel.herencia.Cirujano"/>
+    <mapping class="com.samuel.herencia.Soldado"/>
+    <mapping class="com.samuel.herencia.SoldadoInfanteria"/>
+
+  </session-factory>
+</hibernate-configuration>
